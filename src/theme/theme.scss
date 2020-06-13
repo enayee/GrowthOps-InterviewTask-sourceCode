@@ -1,0 +1,45 @@
+@import './color.scss';
+@import './size.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+button {
+  font-family: 'cwTeXYen','Raleway', 'Avenir', Helvetica, Arial, sans-serif;
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    outline: none;
+  }
+}
+
+.Section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: $text-black-color;
+  margin: 0;
+  &.light {
+    color: $text-light-grey-color;
+  }
+}
+.Description {
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  &.light {
+    color: #8a8a8a;
+  }
+  &.dark {
+    color: #606060;
+  }
+}
+.Text-theme-color {
+  color: $main-theme-color;
+}
