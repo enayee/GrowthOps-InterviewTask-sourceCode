@@ -92,6 +92,12 @@ export default {
     height: 170px;
     width: 90%;
     margin: auto;
+    @media (max-width: $below-ipad-size) {
+      height: 300px
+    }
+    @media (max-width: 500px) {
+      height: 170px
+    }
   }
   .slide-item {
     width: 280px;

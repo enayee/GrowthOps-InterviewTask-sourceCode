@@ -4,7 +4,7 @@
       <div class="menu-logo">
         <img :src="apdLogo" alt="">
       </div>
-      <div id="topnav" class="menu-list-container">
+      <div id="start" class="menu-list-container">
         <a 
           v-for="(item, index) in menuList"
           :key="index"
@@ -59,7 +59,7 @@ export default {
       this.selectedIndex = index;
     },
     toggleMobileMenu() {
-      var x = document.getElementById("topnav");
+      var x = document.getElementById("start");
       if (x.className === "menu-list-container") {
         x.className += " responsive";
       } else {

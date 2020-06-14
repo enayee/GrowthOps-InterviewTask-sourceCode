@@ -1,6 +1,7 @@
 <template>
   <div class="banner-root">
     <img class="banner-background" :src="BannerBackground" alt="">
+    <a class="toggle-down" href="#start"></a>
   </div>
 </template>
 
@@ -31,6 +32,19 @@ export default {
   @media (max-width: $below-ipad-size) {
     width: 200%;
     margin-left: -22%;
+  }
+}
+.toggle-down {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 60%;
+  left: 32%;
+  cursor: pointer;
+  @media (max-width: $below-ipad-size) {
+    left: 40%;
+    width: 80px;
+    height: 80px;
   }
 }
 </style>
