@@ -4,16 +4,18 @@
       <div class="menu-logo">
         <img :src="apdLogo" alt="">
       </div>
-      <div class="menu-list-container">
-        <div 
+      <div id="topnav" class="menu-list-container">
+        <a 
           v-for="(item, index) in menuList"
           :key="index"
           :id="`menu-${index}`"
           class="menu-item"
+          :href="`#${item.name}`"
           :class="{ 'selected': selectedIndex === index }"
           @click="selectMenu(index)">
           {{ item.name }}
-        </div>
+        </a>
+        <div @click="toggleMobileMenu()" class="icon">&#9776;</div>
       </div>
     </div>
   </div>
@@ -55,6 +57,14 @@ export default {
   methods: {
     selectMenu(index) {
       this.selectedIndex = index;
+    },
+    toggleMobileMenu() {
+      var x = document.getElementById("topnav");
+      if (x.className === "menu-list-container") {
+        x.className += " responsive";
+      } else {
+        x.className = "menu-list-container";
+      }
     }
   }
 }
@@ -77,6 +87,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: $below-ipad-size) {
+    align-items: flex-start;
+  }
 }
 .menu-logo {
   width: 56px;
@@ -93,9 +106,10 @@ export default {
   padding: 25px 0;
   @media (max-width: $small-screen-size) {
     width: 80%;
+    justify-content: flex-end;
   }
   @media (max-width: $below-ipad-size) {
-    display: none;
+    padding: 12px 0;
   }
 }
 .menu-item {
@@ -104,6 +118,8 @@ export default {
   font-weight: 700;
   border-radius: 4px;
   padding: 10px 12px;
+  color: $main-text-color;
+  text-decoration: none;
   background: transparent;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
@@ -118,4 +134,45 @@ export default {
     }
   }
 }
+.menu-list-container {
+  overflow: hidden;
+}
+.menu-list-container a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.menu-list-container .icon {
+  display: none;
+}
+
+@media (max-width: $below-ipad-size) {
+  .menu-list-container a {
+    display: none;
+  }
+  .menu-list-container .icon {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: $below-ipad-size) {
+  .menu-list-container.responsive {
+    position: relative;
+    flex-direction: column;
+    justify-items: flex-start;
+  }
+  .menu-list-container.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .menu-list-container.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 </style>

@@ -5,15 +5,18 @@
         class="members-item"
         v-for="(member, index) in memberList"
         :key="index"
-        v-show="member.display">
+        v-show="displayAll ? true : member.display">
         <div class="member-social">
           <div class="social-wrapper">
             <div
               class="social-item"
               v-for="(social, i) in member.socialMedia"
-              :key="i">
-              {{ social.name }}
-              <img src="">
+              :key="i"
+              @mouseover="displaySocialIndex = i"
+              @mouseleave="displaySocialIndex = -1"
+              @click="openLink(social.link)"
+              >
+              <img class="social-icon" :src="displaySocialIndex === i ? iconSelectList[i] : iconList[i]">
             </div>
           </div>
         </div>
@@ -23,19 +26,53 @@
           <div class="email">{{ member.email }}</div>
           <div class="phone">{{ member.phone }}</div>
         </div>
-      </div>
-      <button class="view-more-button">view all works</button>
+      </div>      
+    </div>
+    <div class="button-container">
+      <button class="view-more-button" @click="displayAll = !displayAll">view all works</button>
     </div>
   </div>
 </template>
 
 <script>
 import memberList from '@/data/memberList.js'
+import dribbble from '@/assets/Icons/dribbble.svg'
+import facebook from '@/assets/Icons/facebook.svg'
+import googleplus from '@/assets/Icons/googleplus.svg'
+import twitter from '@/assets/Icons/twitter.svg'
+import vimeo from '@/assets/Icons/vimeo.svg'
+import dribbbleSelect from '@/assets/Icons/dribbble-select.svg'
+import facebookSelect from '@/assets/Icons/facebook-select.svg'
+import googleplusSelect from '@/assets/Icons/googleplus-select.svg'
+import twitterSelect from '@/assets/Icons/twitter-select.svg'
+import vimeoSelect from '@/assets/Icons/vimeo-select.svg'
 export default {
   name: 'members',
   data() {
     return {
       memberList,
+      iconList: [
+        facebook,
+        twitter,
+        googleplus,
+        vimeo,
+        dribbble,
+      ],
+      iconSelectList: [
+        facebookSelect,
+        twitterSelect,
+        googleplusSelect,
+        vimeoSelect,
+        dribbbleSelect,
+      ],
+      displaySocialIndex: -1,
+      displayAll: false,
+    }
+  },
+  watch: {},
+  methods: {
+    openLink(link) {
+      window.open(link, '_blank');
     }
   }
 }
@@ -46,6 +83,7 @@ export default {
 .members-root {
   background-color: $background-black-color;
   padding: 60px 0 120px;
+  position: relative;
 }
 .members-container {
   margin: auto;
@@ -55,20 +93,14 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-}
-.members-item {
-  width: 24%;
-  @media (max-width: $ipad-size) {
-    width: calc(50% - 20px);
-    margin: 10px;
-  }
-  @media (max-width: $below-ipad-size) {
-    width: 100%;
-    margin: 10px auto;
+  &:after {
+    content: "";
+    flex: auto;
+    width: 20px;
+    height: 20px;
   }
 }
 .member-social {
-  // background-color: $main-theme-color;
   background-color: #aaaaaa;
   width: 100%;
   height: 270px;
@@ -82,16 +114,42 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    display: none;
   }
   .social-item {
-    background-color: $background-light-grey-color;
-    width: 40px;
-    height: 40px;
     margin-left: -3px;
     border-radius: 4px;
-    transform: rotate(45deg);
+    position: relative;
+    display: flex;
+    cursor: pointer;
     &:first-of-type {
       margin-left: 0;
+    }
+    &::before {
+      content: '';
+      background-color: $background-light-grey-color;
+      width: 40px;
+      height: 40px;
+      transform: rotate(45deg);
+      content: '';
+      transform: rotate(45deg);
+      border-radius: 4px;
+    }
+    .social-icon {
+      width: 25px;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    &:hover {
+      &::before {
+        background-color: $background-black-color;
+        z-index: 2;
+      }
+      .social-icon {
+        z-index: 2;
+      }
     }
   }
 }
@@ -104,7 +162,6 @@ export default {
   text-align: center;
   padding-bottom: 10px;
   .name {
-    // background-color: $background-black-color;
     background-color: $main-theme-color;
     padding: 16px 15px;
     z-index: 2;
@@ -135,7 +192,41 @@ export default {
     color: #aaaaaa;
   }
 }
+.members-item {
+  width: 24%;
+  transition: all 0.2s ease-in-out;
+  margin: 5px;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    .member-social {
+      background-color: $main-theme-color;
+    }
+    .social-wrapper {
+      display: flex;
+    }
+    .member-info .name {
+      background-color: $background-black-color;
+    }
+  }
+  @media (max-width: $ipad-size) {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
+  }
+}
+.button-container {
+  margin: auto;
+  width: 80%;
+  max-width: $content-max-width;
+  text-align: center;
+  position: relative;
+  margin-top: 53px;
+}
 .view-more-button {
+  position: relative;
   width: 100%;
   background-color: $main-theme-color;
   color: $text-light-grey-color;
@@ -143,10 +234,9 @@ export default {
   font-weight: 800;
   line-height: 1.54;
   text-transform: uppercase;
-  margin-top: 53px;
   line-height: 40px;
   border-radius: 4px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;  
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
