@@ -43,3 +43,23 @@ button {
 .Text-theme-color {
   color: $main-theme-color;
 }
+@mixin Slider-button($hover-color, $hover-background) {
+  background-color: $background-light-grey-color;
+  color: $main-theme-color;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  border-radius: 4px;
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background;
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    &:hover {
+      background-color: $background-light-grey-color;
+      color: $main-theme-color;
+    }
+  }
+}

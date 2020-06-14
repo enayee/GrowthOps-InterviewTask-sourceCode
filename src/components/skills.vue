@@ -189,7 +189,7 @@ export default {
 .circular-chart {
   display: block;
   margin: 20px auto;
-  max-width: 80%;
+  max-width: 120px;
   max-height: 250px;
 }
 .circle-bg {
@@ -243,7 +243,7 @@ export default {
   flex-wrap: wrap;
 }
 .skill-desc-item {
-  width: 30%;
+  width: calc(100% / 3);
   display: flex;
   // justify-content: ;
 }
