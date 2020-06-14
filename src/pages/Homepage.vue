@@ -56,11 +56,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/theme/theme.scss';
   footer {
     background-color: #333333;
     text-align: center;
     padding: 48px 0 27px;
     color: #cccccc;
     font-size: 14px;
+    @media (max-width: $below-ipad-size) {
+      padding: 20px;
+      margin: auto;
+    }
   }
 </style>

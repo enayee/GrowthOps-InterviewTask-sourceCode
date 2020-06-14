@@ -17,15 +17,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/theme/theme.scss';
 .banner-root {
   width: 100%;
   height: 100%;
   position: relative;
+  @media (max-width: $below-ipad-size) {
+    overflow: hidden;
+  }
 }
 .banner-background {
   width: 100%;
-  // position: absolute;
-  // top: 0;
-  // left: 0
+  @media (max-width: $below-ipad-size) {
+    width: 200%;
+    margin-left: -22%;
+  }
 }
 </style>

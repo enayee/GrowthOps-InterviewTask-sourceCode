@@ -39,6 +39,10 @@ button {
   &.dark {
     color: #606060;
   }
+  @media (max-width: $below-ipad-size) {
+    width: 90%;
+    margin: 20px auto 0;
+  }
 }
 .Text-theme-color {
   color: $main-theme-color;

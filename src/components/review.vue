@@ -103,11 +103,18 @@ export default {
     line-height: 1.7;
     color: $text-light-grey-color;
     position: relative;
+    @media (max-width: $below-ipad-size) {
+      font-size: 14px;
+    }
     .quotation-mark {
       position: relative;
       font-size: 80px;
       line-height: 0px;
       top: 40px;
+      @media (max-width: $below-ipad-size) {
+        font-size: 48px;
+        top: 20px;
+      }
     }
   }
 }

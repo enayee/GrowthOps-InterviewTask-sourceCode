@@ -4,7 +4,7 @@
       <i class="register-title">Register Your Interest</i>
       <div class="form-container">
         <div class="form-item">
-          <input type="text" id="name" name="name" placeholder="Name"><br><br>
+          <input type="text" id="name" name="name" placeholder="Name">
           <div class="select-box">
               <div class="current" tabindex="0">
                 <div class="value"><input class="input" type="radio" id="0" value="1" name="Ben" checked="false" />
@@ -31,9 +31,9 @@
                   <li><label class="option" for="3" aria-hidden="aria-hidden">Boss</label></li>
               </ul>
           </div>
-          <input type="text" id="email" name="email" placeholder="Email Address"><br><br>
-          <input type="text" id="contact" name="contact" placeholder="Contact No"><br><br>
-          <textarea type="textarea" id="name" name="message" placeholder="Message ..."></textarea><br><br>
+          <input type="text" id="email" name="email" placeholder="Email Address">
+          <input type="text" id="contact" name="contact" placeholder="Contact No">
+          <textarea type="textarea" id="name" name="message" placeholder="Message ..."></textarea>
         </div>
         <button class="submit-button">Submit Message</button>
       </div>
@@ -51,17 +51,28 @@ export default {
 @import '@/theme/theme.scss';
 .register-root {
   padding: 80px 0;
+  @media (max-width: $below-ipad-size) {
+    padding: 40px 0;
+  }
 }
 .register-container {
   margin: auto;
   width: 80%;
   max-width: $content-max-width;
+  @media (max-width: $below-ipad-size) {
+    width: 90%;
+  }
 }
 .register-title {
   font-size: 60px;
   font-weight: 600;
   line-height: 0.37;
   color: $main-theme-color;
+  @media (max-width: $below-ipad-size) {
+    font-size: 48px;
+    line-height: 1;
+    text-align: center;
+  }
 }
 .form-container {
   padding: 35px;
@@ -96,6 +107,13 @@ input, textarea {
     font-style: italic;
     color: #aaaaaa;
   }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
+    &:nth-of-type(n+1) {
+      margin-right: 0px;
+    }
+  }
 }
 textarea {
   resize: vertical;
@@ -107,17 +125,9 @@ textarea {
   font-size: 12px;
   width: calc(50% - 20px);
   margin: 0;
-  // @media (min-width: 768px) {
-  //   width: 70%;
-  // }
-  
-  // @media (min-width: 992px) {
-  //   width: 50%;
-  // }
-  
-  // @media (min-width: 1200px) {
-  //   width: 30%;
-  // }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+  }
   
   .current {
     position: relative;
@@ -226,6 +236,10 @@ textarea {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+  }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
   }
 }
 </style>

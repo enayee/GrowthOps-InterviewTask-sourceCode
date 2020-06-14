@@ -1,6 +1,10 @@
 <template>
   <div class="sponsors-root">
     <div class="sponsors-container">
+      <div class="button-container">
+        <button class="slider-button" @click="previous()">&#9664;</button>
+        <button class="slider-button" @click="next()">&#9654;</button>
+      </div>
       <flickity ref="flickity" class="carousel" :options="flickityOptions">
         <div 
           class="slide-item"
@@ -9,10 +13,6 @@
         <img :src="item.image">
       </div>
       </flickity>
-      <div class="button-container">
-        <button class="slider-button" @click="previous()">&#9664;</button>
-        <button class="slider-button" @click="next()">&#9654;</button>
-      </div>
     </div>
   </div>
 </template>
@@ -78,6 +78,9 @@ export default {
     position: relative;
     background: $background-black-color;
     padding: 90px 0;
+    @media (max-width: $below-ipad-size) {
+      padding: 40px 0;
+    }
   }
   .sponsors-container {
     margin: auto;
@@ -92,6 +95,7 @@ export default {
   }
   .slide-item {
     width: 280px;
+    z-index: 2;
     img {
       width: 100%;
       padding: 20px;
@@ -101,6 +105,10 @@ export default {
       &:hover {
         opacity: 1;
       }
+    }
+    @media (max-width: $below-ipad-size) {
+      width: 100%;
+      margin: 0px;
     }
   }
   .button-container {

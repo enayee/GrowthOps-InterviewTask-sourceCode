@@ -58,7 +58,14 @@ export default {
 }
 .members-item {
   width: 24%;
-  
+  @media (max-width: $ipad-size) {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
+  }
 }
 .member-social {
   // background-color: $main-theme-color;
@@ -139,5 +146,10 @@ export default {
   margin-top: 53px;
   line-height: 40px;
   border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+  }
 }
 </style>

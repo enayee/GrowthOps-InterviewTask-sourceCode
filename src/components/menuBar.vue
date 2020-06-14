@@ -91,6 +91,12 @@ export default {
   align-items: center;
   width: 60%;
   padding: 25px 0;
+  @media (max-width: $small-screen-size) {
+    width: 80%;
+  }
+  @media (max-width: $below-ipad-size) {
+    display: none;
+  }
 }
 .menu-item {
   min-width: 20px;

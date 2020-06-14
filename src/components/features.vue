@@ -68,6 +68,9 @@ export default {
 .features-root {
   margin: 80px auto 124px;
   width: 100%;
+  @media (max-width: $below-ipad-size) {
+    margin: 40px auto 80px;
+  }
   .title {
     text-align: center;
     text-transform: uppercase;
@@ -78,11 +81,18 @@ export default {
     margin: 50px auto 0;
     display: flex;
     align-items: center;
+    @media (max-width: $below-ipad-size) {
+      flex-direction: column;
+    }
   }
   .feature-item {
     width: calc(100% / 3);
     margin: auto;
     text-align: center;
+    @media (max-width: $below-ipad-size) {
+      width: 100%;
+      margin: 10px auto;
+    }
   }
   .feature-icon {
     background-color: $background-black-color;
@@ -96,7 +106,7 @@ export default {
     img {
       position: absolute;
       left: 50%;
-      top: 55%;
+      top: 50%;
       width: 50%;
       transform: translate(-50%, -50%);
     }

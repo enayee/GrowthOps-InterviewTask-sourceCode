@@ -1,8 +1,10 @@
 <template>
   <div class="skills-root">
     <div class="main-skill-wrapper">
-      <h2 class="Section-title light">our powerful <span class="Text-theme-color">skills</span></h2>
-      <div class="Description dark">We’re good and experienced at different things and areas and we promise about qulity of our works</div>
+      <div class="title-container">
+        <h2 class="Section-title light">our powerful <span class="Text-theme-color">skills</span></h2>
+        <div class="Description dark">We’re good and experienced at different things and areas and we promise about qulity of our works</div>
+      </div>
       <div class="main-skill-container">
         <div class="skill-chart" v-for="(skill, index) in mainSkillList" :key="index">
           <svg viewBox="0 0 36 36" class="circular-chart">
@@ -167,6 +169,14 @@ export default {
 .main-skill-wrapper {
   padding: 80px 0 70px;
   background-color: $background-black-color;
+  @media (max-width: $below-ipad-size) {
+    padding: 80px 0 40px;
+  }
+  .title-container {
+    width: 80%;
+    max-width: $content-max-width;
+    margin: auto;
+  }
 }
 .skill-desc-wrapper {
   padding: 70px 0 60px;
@@ -174,6 +184,10 @@ export default {
   width: 80%;
   max-width: $content-max-width;
   margin: 30px auto 0;
+  @media (max-width: $below-ipad-size) {
+    margin: 0px auto;
+    padding: 40px 0;
+  }
 }
 .main-skill-container {
   display: flex;
@@ -181,16 +195,31 @@ export default {
   width: 80%;
   max-width: $content-max-width;
   margin: 30px auto 0;
+  @media (max-width: $ipad-size) {
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
 }
 .skill-chart {
   width: 33%;
   justify-content: space-around;
+  @media (max-width: $ipad-size) {
+    flex-wrap: wrap;
+    width: 200px;
+  }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
+  }
 }
 .circular-chart {
   display: block;
   margin: 20px auto;
   max-width: 120px;
   max-height: 250px;
+  @media (max-width: $ipad-size) {
+    max-width: auto;
+  }
 }
 .circle-bg {
   fill: none;
@@ -239,13 +268,19 @@ export default {
 }
 .skill-desc-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 .skill-desc-item {
   width: calc(100% / 3);
   display: flex;
-  // justify-content: ;
+  @media (max-width: $ipad-size) {
+    width: 50%;
+  }
+  @media (max-width: $below-ipad-size) {
+    width: 100%;
+    margin: 10px auto;
+  }
 }
 .item-icon {
   width: 40px;
@@ -259,6 +294,9 @@ export default {
 }
 .item-text {
   margin: 0 20px 30px;
+  @media (max-width: $below-ipad-size) {
+    margin-right: 0;
+  }
   .title {
     font-size: 14px;
     font-weight: 800;
