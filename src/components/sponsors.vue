@@ -2,8 +2,8 @@
   <div class="sponsors-root">
     <div class="sponsors-container">
       <div class="button-container">
-        <button class="slider-button" @click="previous()">&#9664;</button>
-        <button class="slider-button" @click="next()">&#9654;</button>
+        <button class="slider-button" @click="previous()">◄</button>
+        <button class="slider-button" @click="next()">►</button>
       </div>
       <flickity ref="flickity" class="carousel" :options="flickityOptions">
         <div 

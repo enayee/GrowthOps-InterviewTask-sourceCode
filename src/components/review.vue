@@ -13,8 +13,9 @@
         </div>
       </div>
       <div class="button-container">
-        <button class="slider-button" :disabled="displayIndex === 0" @click="showDisplay(-1)">&#9664;</button>
-        <button class="slider-button" :disabled="displayIndex === memberList.length - 1" @click="showDisplay(1)">&#9654;</button>
+        <button class="slider-button left" :disabled="displayIndex === 0" @click="showDisplay(-1)">◄</button>
+        <button class="slider-button right" :disabled="displayIndex === memberList.length - 1" @click="showDisplay(1)">►</button>
+        <!-- &#9664; &#9654; -->
       </div>
     </div>
   </div>
