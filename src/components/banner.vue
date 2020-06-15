@@ -1,7 +1,7 @@
 <template>
   <div class="banner-root">
     <img class="banner-background" :src="BannerBackground" alt="">
-    <a class="toggle-down" href="#start"></a>
+    <a class="toggle-down" @click="goHash('#start')"></a>
   </div>
 </template>
 
@@ -13,7 +13,14 @@ export default {
     return {
       BannerBackground,
     }
-  }
+  },
+  methods: {
+    goHash(hash) {
+      location.hash = hash;
+      window.location.href.substr(0, window.location.href.indexOf('#'))
+      this.$router.push({name: 'Homepage'})
+    }
+  },
 }
 </script>
 

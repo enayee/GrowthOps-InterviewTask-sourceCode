@@ -29,7 +29,7 @@
       </div>      
     </div>
     <div class="button-container">
-      <button class="view-more-button" @click="displayAll = !displayAll">view all works</button>
+      <button class="view-more-button" @click="displayAll = !displayAll">{{displayAll ? 'view less works' : 'view all works'}}</button>
     </div>
   </div>
 </template>
@@ -103,7 +103,7 @@ export default {
 .member-social {
   background-color: #aaaaaa;
   width: 100%;
-  height: 270px;
+  height: 240px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   position: relative;

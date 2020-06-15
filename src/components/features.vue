@@ -1,6 +1,11 @@
 <template>
   <div class="features-root">
-    <h2 class="Section-title">what we <span class="Text-theme-color">offer</span></h2>
+    <div class="title-container">
+      <div class="fancy"></div>
+      <div class="Section-title">what we <span class="Text-theme-color">offer</span></div>
+      <div class="fancy right"></div>
+    </div>
+    <div class="fancy"></div>
     <div class="Description light">We offer our customers the best services & solutions, this is our main services list</div>
     <div class="feature-list-container">
       <div 
@@ -146,6 +151,25 @@ export default {
       transition: all 0.2s ease;
       color: #e3e3e3;
     }
+  }
+}
+.title-container {
+  position: relative;
+}
+.fancy {
+  width: 200px;
+  height: 4px;
+  border: 1px solid $border-grey-color;
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  top: 13px;
+  left: calc(50% - 22em);
+  &.right {
+    left: calc(50% + 10em);
+  }
+  @media (max-width: 1023px) {
+    display: none;
   }
 }
 </style>

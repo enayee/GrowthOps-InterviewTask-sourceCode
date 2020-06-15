@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueScrollReveal from 'vue-scroll-reveal'
 
 Vue.config.productionTip = false
 
@@ -14,4 +15,11 @@ new Vue({
   template: '<App/>',
 
 })
-// Vue.use(VuePageTransition)
+
+Vue.use(VueScrollReveal, {
+  class: 'v-scroll-reveal',
+  duration: 800,
+  scale: 1,
+  distance: '10px',
+  mobile: false
+});

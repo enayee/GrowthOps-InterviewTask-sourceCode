@@ -10,7 +10,6 @@
           :key="index"
           :id="`menu-${index}`"
           class="menu-item"
-          :href="`#${item.name}`"
           :class="{ 'selected': selectedIndex === index }"
           @click="selectMenu(index)">
           {{ item.name }}

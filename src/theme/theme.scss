@@ -22,9 +22,35 @@ button {
   text-transform: uppercase;
   font-weight: 800;
   color: $text-black-color;
+  font-size: 26px;
   margin: 0;
+  position: relative;
   &.light {
     color: $text-light-grey-color;
+  }
+  &::before {
+    content: '';
+    background: url('~@/assets/Icons/title-right.svg');
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -5px;
+    margin-left: -20px;
+    transform: translateX(-50%) rotate(180deg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &::after {
+    content: '';
+    background: url('~@/assets/Icons/title-right.svg');
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 8px;
+    margin-left: 10px;
+    // transform: ;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 .Description {

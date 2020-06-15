@@ -2,11 +2,11 @@
   <div class="skills-root">
     <div class="main-skill-wrapper">
       <div class="title-container">
-        <h2 class="Section-title light">our powerful <span class="Text-theme-color">skills</span></h2>
+        <div class="Section-title light">our powerful <span class="Text-theme-color">skills</span></div>
         <div class="Description dark">We’re good and experienced at different things and areas and we promise about qulity of our works</div>
       </div>
       <div class="main-skill-container">
-        <div class="skill-chart" v-for="(skill, index) in mainSkillList" :key="index">
+        <div class="skill-chart v-scroll-reveal" v-for="(skill, index) in mainSkillList" :key="index">
           <svg viewBox="0 0 36 36" class="circular-chart">
             <path class="circle-bg"
               d="M18 2.0845
