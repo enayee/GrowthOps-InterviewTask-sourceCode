@@ -5,7 +5,6 @@
       <div class="Section-title">what we <span class="Text-theme-color">offer</span></div>
       <div class="fancy right"></div>
     </div>
-    <div class="fancy"></div>
     <div class="Description light">We offer our customers the best services & solutions, this is our main services list</div>
     <div class="feature-list-container">
       <div 
