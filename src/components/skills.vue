@@ -176,6 +176,12 @@ export default {
     width: 80%;
     max-width: $content-max-width;
     margin: auto;
+    @media (max-width: $below-ipad-size) {
+      width: 85%;
+      .Section-title {
+        font-size: 24px;
+      }
+    }
   }
 }
 .skill-desc-wrapper {
