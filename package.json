@@ -12,7 +12,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "@babel/runtime": "^7.7.6",
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "sass-loader": "7.3.1",
     "vue": "^2.5.2",
     "vue-flickity": "^1.2.1",
